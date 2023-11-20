@@ -10,7 +10,12 @@ dokku config ${APP_NAME}
 echo -e "${GREEN}::::::::::::::::::::::::::::::: APP REPORT:::::::::::::::::::::::::::::::::::::${RESET}"
 dokku ps:report ${APP_NAME}
 echo -e "${GREEN}::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${RESET}"
+dokku storage:report ${APP_NAME}
+echo -e "${GREEN}::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${RESET}"
 
+
+echo -e "${YELLOW}  ssh root@${IP}  ${RESET}"
+echo -e "${YELLOW} dokku logs ${APP_NAME} -t ${RESET}"
 
 EOF
 

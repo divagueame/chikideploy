@@ -54,15 +54,8 @@ dokku config:set ${APP_NAME} RAILS_MASTER_KEY=$MASTER_KEY
 dokku config:set ${APP_NAME} DEPLOY_BRANCH=$DEPLOY_BRANCH
 
 echo -e "${YELLOW}Setting up persistent storage${RESET}"
-dokku storage:ensure-directory ${APP_NAME}
-dokku storage:mount ${APP_NAME} /var/lib/dokkudata/storage/${APP_NAME}:/app/public/uploads
+dokku storage:ensure-directory ${APP_NAME} --chown false
+dokku storage:mount ${APP_NAME} /var/lib/dokku/data/storage/${APP_NAME}:/app/storage/
 
-
+dokku nginx:set ${APP_NAME} client-max-body-size 10m
 EOF
-
-# echo -e "${RED} - NginX.${RESET}"
-# rm /etc/nginx/sites-enabled/default
-# dokku nginx:stop
-# dokku nginx:start
-
-###### END SERVER SIDE #######
