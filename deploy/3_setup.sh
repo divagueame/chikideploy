@@ -11,6 +11,7 @@ declare -n IP="${APP_NAME^^}_IP"
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 DEPLOY_BRANCH=${current_branch:-main}
 MASTER_KEY=$(cat ./config/master.key)
+SWAP_MEMORY=true
 
 if [ -z "$IP" ]; then
 	read -p "Enter the IP: " IP
