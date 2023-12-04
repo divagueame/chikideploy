@@ -11,7 +11,7 @@ declare -n IP="${APP_NAME^^}_IP"
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 DEPLOY_BRANCH=${current_branch:-main}
 MASTER_KEY=$(cat ./config/master.key)
-SWAP_MEMORY=true
+SWAP_MEMORY=false
 
 if [ -z "$IP" ]; then
 	read -p "Enter the IP: " IP
@@ -47,4 +47,5 @@ echo "IP: $IP"
 echo "DOMAIN_NAME: $DOMAIN_NAME"
 echo "DEPLOY_BRANCH: $DEPLOY_BRANCH"
 echo "SSL_FLAG: $SSL_FLAG"
+echo "SWAP MEMORY: $SWAP_MEMORY"
 echo -e "${RESET}"
