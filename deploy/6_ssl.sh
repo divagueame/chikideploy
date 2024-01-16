@@ -15,7 +15,7 @@ sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 dokku config:set --global --no-restart DOKKU_LETSENCRYPT_EMAIL=info@boomletter.com
 dokku letsencrypt:set ${APP_NAME} email info@boomletter.com
 dokku letsencrypt:enable ${APP_NAME}
-dokku letsencrypt:cron-job --add
+dokku letsencrypt:cron-job --add ${APP_NAME}
 
 EOF
 fi
